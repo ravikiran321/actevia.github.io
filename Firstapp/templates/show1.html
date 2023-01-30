@@ -1,0 +1,52 @@
+{% load static %}
+{% comment %} <link rel="stylesheet" href="{% static '/style.css' %}"/> {% endcomment %}
+<img src="{% static 'img/logo.png' %}" alt="My image">
+  
+<h1 align="center">HR Resources Details</h1>
+
+<form method="get">
+
+    {% comment %} {{filters.form1}} {% endcomment %}
+
+    {% comment %} <input type="submit" value="Search1" name=""> {% endcomment %}
+
+</form>
+
+<hr>
+<form method="get">
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Uploaded_files</th>
+        <th>L1_Interviewer_Name</th>
+        <th>L1_Date_Time</th>
+        <th>L2_Interviewer_Name</th>
+        <th>L2_Date_Time</th>
+        <th>Interview_status</th>
+        <th>Onboarding_status</th>
+        <th>Action</th>
+    <tbody>
+{% for employees in employees %}
+    <tr>
+        <td>{{ employees.hrid }}</td>
+        <td><a href="{{employees.file.url}}" download> {{employees.file}}</a></td>
+        {% comment %} <td>{{ employees.file }}</td> {% endcomment %}
+        <td>{{ employees.L1interviewername }}</td>
+        <td>{{ employees.L1interviewdatetime }}</td>
+        <td>{{ employees.L2interviewername }}</td>
+        <td>{{ employees.L2interviewdatetime }}</td>
+        <td>{{ employees.status }}</td>
+        <td>{{ employees.onboarding }}</td>
+        <td>
+            <a href="/edit2/{{ employees.id }}" , id="edit"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+            <a href="/delete2/{{ employees.id }}" , id="del">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<center><button class="btn btn-danger "><a href="/hr" >Add New Record</a></button></center>
+<br>
+{% comment %} <center><button><a href="{% url 'logout' %}" class="btn btn-primary">Logout</a></button></center> {% endcomment %}
+</form>

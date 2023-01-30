@@ -1,0 +1,50 @@
+{% load static %}
+{% comment %} <link rel="stylesheet" href="{% static '/style.css' %}"/> {% endcomment %}
+<img src="{% static 'img/logo.png' %}" alt="My image">
+  
+<h1 align="center">Resources Details</h1>
+
+<form method="get">
+
+    {{filters.form1}}
+
+    {% comment %} <input type="submit" value="Search1" name=""> {% endcomment %}
+
+</form>
+
+<hr>
+<form method="get">
+<table border="1">
+    <tr>
+        <th>Sl No</th>
+        <th>Company_Name</th>
+        <th>Job_Area</th>
+        <th>Resources_required</th>
+        <th>JOB_Description</th>
+        <th>Remaining_resources</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    <tbody>
+{% for employees in employees %}
+    <tr>
+        <td>{{ employees.rid }}</td>
+        <td>{{ employees.companyname }}</td>
+        <td>{{ employees.jobarea }}</td>
+        <td>{{ employees.resourcerequired }}</td>
+        <td>{{ employees.jd }}</td>
+        <td>{{ employees.resourceremaining }}</td>
+        <td>{{ employees.r_status }}</td>
+        <td>
+            <a href="/edit1/{{ employees.id }}" , id="edit"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+            <a href="/delete1/{{ employees.id }}" , id="del">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<center><button class="btn btn-danger "><a href="/recruiter" >Add New Record</a></button></center>
+<br>
+{% comment %} <center><button><a href="{% url 'logout' %}" class="btn btn-primary">Logout</a></button></center> {% endcomment %}
+</form>

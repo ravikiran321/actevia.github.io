@@ -1,0 +1,58 @@
+{% load static %}
+{% comment %} <link rel="stylesheet" href="{% static '/style.css' %}"/> {% endcomment %}
+<img src="{% static 'img/logo.png' %}" alt="My image">
+  
+<h1 align="center">V&V Resource Dashboard</h1>
+
+<form method="get">
+
+    {{filters.form}}
+
+    <input type="submit" value="Search" name="">
+
+</form>
+
+<hr>
+<form method="get">
+<table border="1">
+    <tr>
+        <th>Employee_Name</th>
+        <th>Year_of_Exp</th>
+        <th>Education</th>
+        <th>Key_Skills</th>
+        <th>Detailed_Skills</th>
+        <th>Interview_Score</th>
+        <th>Preffered_Work_Location</th>
+        <th>Expected_Salary</th>
+        <th>Rate_Card</th>
+        <th>Date_of_Join</th> 
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    <tbody>
+{% for employee in filters.qs %}
+    <tr>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.yearofexp }}</td>
+        <td>{{ employee.education }}</td>
+        <td>{{ employee.keyskills }}</td>
+        <td>{{ employee.detailedskills }}</td>
+        <td>{{ employee.interviewscore }}</td>
+        <td>{{ employee.prefferedworklocation }}</td>
+        <td>{{ employee.currentsalary }}</td>
+        <td>{{ employee.expectedsalary }}</td>
+        <td>{{ employee.doj }}</td>
+        <td>{{ employee.status }}</td>
+        <td>
+            <a href="/edit/{{ employee.id }}" , id="edit"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+            <a href="/delete/{{ employee.id }}" , id="del">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<center><button class="btn btn-danger "><a href="/emp" >Add New Record</a></button></center>
+<br>
+<center><button><a href="{% url 'logout' %}" class="btn btn-primary">Logout</a></button></center>
+</form>

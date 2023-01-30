@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}"/>
+</head>
+<body>
+    <form method="POST" class="post-form" action="/update/{{employee.id}}" >
+        {% csrf_token %}
+    <div class="container">
+<br>
+<img src="{% static 'img/logo.png' %}" alt="My image">
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>    
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Employee Name :</label>
+    <div class="col-sm-4">
+        <input type="text" name="name" id="id_name" required maxlength="100" value="{{ employee.name }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Year of Exp :</label>
+    <div class="col-sm-4">
+        <input type="text" name="yearofexp" id="id_yearofexp" required maxlength="100" value="{{ employee.yearofexp }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Education :</label>
+    <div class="col-sm-4">
+        <input type="text" name="education" id="id_education" required maxlength="300" value="{{ employee.education }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Key Skills :</label>
+    <div class="col-sm-4">
+        <input type="text" name="keyskills" id="id_keyskills" required maxlength="500" value="{{ employee.keyskills }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Detailed Skills :</label>
+    <div class="col-sm-4">
+        <input type="text" name="detailedskills" id="id_detailedskills" required maxlength="100" value="{{ employee.detailedskills }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Interview Score :</label>
+    <div class="col-sm-4">
+        <input type="text" name="interviewscore" id="id_interviewscore" required maxlength="4" value="{{ employee.interviewscore }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Preffered Work Location :</label>
+    <div class="col-sm-4">
+        <input type="text" name="prefferedworklocation" id="id_prefferedworklocation" required maxlength="500" value="{{ employee.prefferedworklocation }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Expected Salary :</label>
+    <div class="col-sm-4">
+        <input type="text" name="currentsalary" id="id_currentsalary" required maxlength="10" value="{{ employee.currentsalary }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Rate Card :</label>
+    <div class="col-sm-4">
+        <input type="text" name="expectedsalary" id="id_expectedsalary" required maxlength="10" value="{{ employee.expectedsalary }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Date of Join :</label>
+    <div class="col-sm-4">
+        <input type="text" name="doj" id="id_doj" required maxlength="10" value="{{ employee.doj }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Status :</label>
+    <div class="col-sm-4">
+        <input type="text" name="status" id="id_status" required maxlength="10"  value="{{ employee.status }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-sucess">Update</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>

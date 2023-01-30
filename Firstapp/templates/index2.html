@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <title>Index2</title>
+    
+    <link rel="stylesheet" href="{% static '/style.css' %}"/>
+</head>
+<body>
+<form method="POST" class="post-form" action="/hr" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+    <div class="container-fluid">
+<br>
+<img src="{% static 'img/logo.png' %}" alt="My image">
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>    
+    <div class="col-sm-4">
+    <h3>Enter Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">HR ID :</label>
+    <div class="col-sm-4">
+        {{ form1.hrid }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">File :</label>
+    <div class="col-sm-4">
+        {{ form1.file }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">L1 Interviwer Name :</label>
+    <div class="col-sm-4">
+        {{ form1.L1interviewername }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">L1 Interview Date and Time :</label>
+    <div class="col-sm-4">
+        {{ form1.L1interviewdatetime }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">L2 Interviwer Name :</label>
+    <div class="col-sm-4">
+        {{ form1.L2interviewername }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">L2 Interview Date and Time :</label>
+    <div class="col-sm-4">
+        {{ form1.L2interviewdatetime }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label"> Status :</label>
+    <div class="col-sm-4">
+        {{ form1.status }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Onboarding Status :</label>
+    <div class="col-sm-4">
+        {{ form1.onboarding }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
+  </div>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

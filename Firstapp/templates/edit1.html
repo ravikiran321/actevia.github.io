@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index1</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}"/>
+</head>
+<body>
+    <form method="POST" class="post-form" action="/update1/{{employee.id}}" >
+        {% csrf_token %}
+    <div class="container">
+<br>
+<img src="{% static 'img/logo.png' %}" alt="My image">
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>    
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">SL ID :</label>
+    <div class="col-sm-4">
+        <input type="text" name="rid" id="id_rid" required maxlength="5" value="{{ employee.rid }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Company Name :</label>
+    <div class="col-sm-4">
+        <input type="text" name="companyname" id="id_companyname" required maxlength="30" value="{{ employee.companyname }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Job Area :</label>
+    <div class="col-sm-4">
+        <input type="text" name="jobarea" id="id_jobarea" required maxlength="30" value="{{ employee.jobarea }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Resources Required :</label>
+    <div class="col-sm-4">
+        <input type="text" name="resourcerequired" id="id_resourcerequired" required maxlength="10" value="{{ employee.resourcerequired }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Job Description :</label>
+    <div class="col-sm-4">
+        <input type="text" name="jd" id="id_jd" required maxlength="1000" value="{{ employee.jd }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Resource Remaining :</label>
+    <div class="col-sm-4">
+        <input type="text" name="resourceremaining" id="id_resourceremaining" required maxlength="10" value="{{ employee.resourceremaining }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Status :</label>
+    <div class="col-sm-4">
+        <input type="text" name="r_status" id="id_r_status" required maxlength="10" value="{{ employee.r_status }}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-sucess">Update</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>
